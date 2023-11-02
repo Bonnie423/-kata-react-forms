@@ -9,10 +9,16 @@ export default function CheckboxForm() {
     event.preventDefault()
 
     console.log('Submitting:', isChecked)
+    const copyList = [...list]
+    copyList.push(isChecked)
+    setList(copyList)
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log('Checkbox changed:', event.target.checked)
+   
+      setIsChecked(!isChecked)
+    
   }
 
   return (
@@ -24,6 +30,7 @@ export default function CheckboxForm() {
           name="checkbox"
           id="checkbox"
           checked={isChecked}
+          onChange={handleChange}
         />
         <button>Submit</button>
       </form>
