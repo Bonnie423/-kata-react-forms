@@ -9,17 +9,28 @@ export default function TextForm() {
     event.preventDefault()
 
     console.log('Submitting:', newItem)
+    const copyList = [...list]
+    copyList.push(newItem)
+    setList(copyList)
+    setNewItem('')
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log('Text changed:', event.target.value)
+    setNewItem(event.target.value)
   }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="newItem">New Item:</label>
-        <input type="text" name="newItem" id="newItem" value={newItem} />
+        <input
+          type="text"
+          name="newItem"
+          id="newItem"
+          value={newItem}
+          onChange={handleChange}
+        />
         <button>Submit</button>
       </form>
       <h2 id="list">List: </h2>

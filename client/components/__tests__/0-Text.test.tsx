@@ -4,7 +4,7 @@ import { screen, within } from '@testing-library/react'
 import { renderRoute } from '../../test/utils.tsx'
 
 describe('<TextForm />', () => {
-  it.skip('should allow user to type text into input', async () => {
+  it('should allow user to type text into input', async () => {
     const { user } = renderRoute('/0')
 
     const input = screen.getByLabelText(/new item/i)
@@ -15,7 +15,7 @@ describe('<TextForm />', () => {
     expect(screen.getByLabelText(/new item/i)).toHaveValue('Hello')
   })
 
-  it.skip('should not make an HTTP request on submission', async () => {
+  it('should not make an HTTP request on submission', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => {})
     const { user } = renderRoute('/0')
 
@@ -30,7 +30,7 @@ describe('<TextForm />', () => {
     expect(console.error).not.toHaveBeenCalled()
   })
 
-  it.skip('should allow user to add a single item to rendered list', async () => {
+  it('should allow user to add a single item to rendered list', async () => {
     const { user } = renderRoute('/0')
 
     const input = screen.getByLabelText(/new item/i)
@@ -49,7 +49,7 @@ describe('<TextForm />', () => {
     expect(listItems).toEqual(['Do the dishes'])
   })
 
-  it.skip('should let the user use the {Enter} key to submit', async () => {
+  it('should let the user use the {Enter} key to submit', async () => {
     const { user } = renderRoute('/0')
 
     const input = screen.getByLabelText(/new item/i)
@@ -66,7 +66,7 @@ describe('<TextForm />', () => {
     expect(listItems).toEqual(['Do the dishes'])
   })
 
-  it.skip('should clear the input field automatically when the user submits an item', async () => {
+  it('should clear the input field automatically when the user submits an item', async () => {
     const { user } = renderRoute('/0')
 
     const input = screen.getByLabelText(/new item/i)
@@ -78,7 +78,7 @@ describe('<TextForm />', () => {
     expect(screen.getByLabelText(/new item/i)).toHaveValue('')
   })
 
-  it.skip('should let the user submit multiple items one after each other', async () => {
+  it('should let the user submit multiple items one after each other', async () => {
     const { user } = renderRoute('/0')
 
     const input = screen.getByLabelText(/new item/i)
